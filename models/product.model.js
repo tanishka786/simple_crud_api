@@ -21,7 +21,7 @@ const ProductScheme = mongoose.Schema(
 
         image: {
             type: String,
-            required: true,
+            required: false,
         }
     },
 
@@ -31,6 +31,6 @@ const ProductScheme = mongoose.Schema(
 );
 
 //allowing mongodb to use this model
-const Product = mongoose.model("Product",ProductScheme);
+const Product = mongoose.model("Product", ProductScheme);
 
 module.exports = Product;

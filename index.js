@@ -3,10 +3,31 @@
 //bolier plate code of express
 const express = require('express')
 const mongoose = require('mongoose');
+
+//importing model here:
+const Product = require('.models/product.model.js');
 const app = express()
+
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
    res.send("Ola from node API Server ✌🏻"); // coming from node API
+});
+
+app.post('/api/products', async(req, res) => {
+   // const product = req.body;
+   // res.send(req.body);
+
+   try {
+     const product = await Product.create(req.body);
+     res.send(200).json(product);
+   }
+   catch (error) {
+      res.status(500).json({ message: error.message });
+   }
+
+
 });
 
 // Connecting to the database   
