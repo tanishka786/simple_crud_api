@@ -26,8 +26,6 @@ app.post('/api/products', async(req, res) => {
    catch (error) {
       res.status(500).json({ message: error.message });
    }
-
-
 });
 
 // Connecting to the database   
